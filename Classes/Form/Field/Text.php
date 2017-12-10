@@ -56,9 +56,9 @@ class Text extends Input implements FieldInterface
         $configuration['cols'] = $this->getColumns();
         $configuration['eval'] = $this->getValidate();
         $defaultExtras = $this->getDefaultExtras();
-        if (true === $this->getEnableRichText() && true === empty($defaultExtras)) {
-            $typoScript = $this->getConfigurationService()->getAllTypoScript();
-            $configuration['defaultExtras'] = $typoScript['plugin']['tx_flux']['settings']['flexform']['rteDefaults'];
+        if (true === $this->getEnableRichText()) {
+            $configuration['enableRichtext'] = true;
+            $configuration['richtextConfiguration'] = 'default';
         } else {
             $configuration['defaultExtras'] = $defaultExtras;
         }
